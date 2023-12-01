@@ -5,5 +5,5 @@ Welcome to my GitHub repository! I'm Elyor, a passionate Java backend developer 
 ## Technologies
 
 ### 1. Google Authenticator
-Repository Link: [Google Authenticator](#https://github.com/Elyor-Ergashov/LearnNewStacks/tree/master/GoogleAuthenticator) *link*
+Repository Link: [Google Authenticator](https://github.com/Elyor-Ergashov/LearnNewStacks/tree/master/GoogleAuthenticator) *link*
 
