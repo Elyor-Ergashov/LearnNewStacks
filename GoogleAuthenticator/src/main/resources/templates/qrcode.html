@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Authenticator Setup</title>
+</head>
+<body>
+
+<div>
+    <h2>Google Authenticator Setup</h2>
+
+    <form th:action="@{/qrcode/generate}" method="post" th:object="${authentication}" onsubmit="toggleCodeDisplay();">
+        <label>
+            <input type="radio" name="setupMethod" value="qrCode" checked> Scan QR Code
+        </label>
+
+        <label>
+            <input type="radio" name="setupMethod" value="manualCode"> Enter Manual Code
+        </label>
+
+        <button type="submit">Generate Code</button>
+    </form>
+
+    <!-- Display the QR Code image if selected -->
+    <div th:style="${qrCodeSectionStyle}">
+        <img th:src="${qrCode}" alt="QR Code">
+    </div>
+
+    <!-- Display the generated code if selected -->
+    <div th:style="${manualCodeSectionStyle}">
+        <p th:text="${manualCode}"></p>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    // Function to show/hide QR code and manual code sections
+    function toggleCodeDisplay() {
+        var setupMethod = document.querySelector('input[name="setupMethod"]:checked').value;
+
+        if (setupMethod === 'qrCode') {
+            document.getElementById('qrCodeSection').style.display = 'block';
+            document.getElementById('manualCodeSection').style.display = 'none';
+        } else {
+            document.getElementById('qrCodeSection').style.display = 'none';
+            document.getElementById('manualCodeSection').style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+
